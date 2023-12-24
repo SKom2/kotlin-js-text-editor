@@ -4,5 +4,5 @@ pluginManagement {
         gradlePluginPortal()
     }
 }
-rootProject.name = "shoppinglist"
+rootProject.name = "textEditor"
 

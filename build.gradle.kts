@@ -27,6 +27,11 @@ kotlin {
     js {
         browser {
             binaries.executable()
+            commonWebpackConfig {
+                cssSupport {
+                    enabled.set(true)
+                }
+            }
         }
     }
     sourceSets {
@@ -66,6 +71,7 @@ kotlin {
                 implementation(project.dependencies.enforcedPlatform("org.jetbrains.kotlin-wrappers:kotlin-wrappers-bom:$kotlinWrappersVersion"))
                 implementation("org.jetbrains.kotlin-wrappers:kotlin-react")
                 implementation("org.jetbrains.kotlin-wrappers:kotlin-react-dom")
+                implementation(npm("monaco-editor", "0.44.0"))
             }
         }
     }
