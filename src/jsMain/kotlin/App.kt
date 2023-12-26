@@ -25,13 +25,15 @@ val App = FC<Props> {
     val editorContainerRef = useRef<HTMLDivElement>(null)
     var editorInstance: dynamic = null
 
-    useEffect {
+    useEffect  (effect = {
         document.documentElement.style.height = "100%"
         document.documentElement.style.backgroundColor = "#918282"
         document.body.style.height = "100%"
 
         editorContainerRef.current?.let {
-
+            editorInstance = monaco.editor.create(it, js {
+                this.language = "kotlin"
+            })
             // Получение второго дочернего элемента (индекс 1, так как индексация начинается с 0)
             val editorDomElement = it.childNodes[1] as? HTMLDivElement
             editorDomElement?.style?.apply {
@@ -46,12 +48,6 @@ val App = FC<Props> {
                 height = "600px"
             }
         }
-    }
-
-    useEffect (effect = {
-        editorInstance = monaco.editor.create(it, js {
-            this.language = "kotlin"
-        })
     },  dependencies = emptyArray())
 
 
