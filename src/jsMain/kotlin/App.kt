@@ -7,12 +7,17 @@ import kotlinext.js.js
 import kotlinx.browser.window
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
+import org.w3c.dom.url.URL
 import org.w3c.fetch.RequestInit
+import org.w3c.files.Blob
+import org.w3c.files.BlobPropertyBag
 import react.*
 import react.dom.html.ReactHTML.button
 import react.dom.html.ReactHTML.div
+import react.dom.html.ReactHTML.h1
 import react.dom.html.ReactHTML.p
 import web.dom.document
+import web.html.HTMLAnchorElement
 import web.html.HTMLDivElement
 
 @JsModule("monaco-editor")
@@ -23,32 +28,37 @@ external val monaco: dynamic
 val App = FC<Props> {
     val (saveStatus, setSaveStatus) = useState("")
     val editorContainerRef = useRef<HTMLDivElement>(null)
-    var editorInstance: dynamic = null
+    var (editorInstance, setEditorInstance) = useState<dynamic>(null)
 
-    useEffect  (effect = {
+    useEffect{
         document.documentElement.style.height = "100%"
-        document.documentElement.style.backgroundColor = "#918282"
         document.body.style.height = "100%"
 
         editorContainerRef.current?.let {
-            editorInstance = monaco.editor.create(it, js {
-                this.language = "kotlin"
-            })
-            // Получение второго дочернего элемента (индекс 1, так как индексация начинается с 0)
-            val editorDomElement = it.childNodes[1] as? HTMLDivElement
+            if (editorInstance == null && editorContainerRef.current != null) {
+                setEditorInstance(monaco.editor.create(editorContainerRef.current, js {
+                    this.language = "kotlin"
+                }))
+            }
+
+            val editorDomElement = it.querySelector(".monaco-editor") as? HTMLDivElement
             editorDomElement?.style?.apply {
                 // Применение ваших стилей
                 order = "1"
                 width = "100%"
                 margin = "0 0 20px"
-                border = "2px solid black"
-                borderBottom = "3px solid black"
+                border = "2px solid #c0b1fb"
                 overflow = "hidden"
                 borderRadius = "15px"
-                height = "600px"
+                maxHeight = "600px"
+                minHeight = "600px"
             }
+
         }
-    },  dependencies = emptyArray())
+        window.setTimeout({
+            editorInstance.layout()
+        }, 0)
+    }
 
 
     fun saveFile(fileName: String, fileContent: String) {
@@ -74,8 +84,31 @@ val App = FC<Props> {
     }
 
     val handleSaveClick = {
-        val content = editorInstance.getValue() as String
-        saveFile("saveFile.txt", content)
+        val content = editorInstance?.getValue() as? String
+        if (content != null) {
+            saveFile("saveFile.txt", content)
+        }
+
+        val blob = Blob(arrayOf(content), BlobPropertyBag("text/plain;charset=utf-8"))
+
+        val url = URL.createObjectURL(blob)
+
+        val downloadLink = document.createElement("a") as HTMLAnchorElement
+        downloadLink.href = url
+        downloadLink.download = "saveFile.txt"
+        document.body?.appendChild(downloadLink)
+        downloadLink.click()
+        document.body?.removeChild(downloadLink)
+    }
+
+    h1 {
+        +"Welcome to custom Monaco Editor!"
+        style = kotlinext.js.js {
+            margin = "10px auto 20px"
+            textAlign = "center"
+            color = "black"
+            fontSize = "50px"
+        }
     }
 
     div {
@@ -83,12 +116,11 @@ val App = FC<Props> {
         style = kotlinext.js.js {
             display = "grid"
             padding = "20px"
-            width = "80%"  // Adjust width as needed
-            margin = "auto"
-            marginTop = "50px"
+            width = "80%"
+            margin = "0 auto"
             borderRadius = "25px"
-            backgroundColor = "#f9f9f9"
-            boxShadow = "rgba(0, 0, 0, 0.5) 0px 0px 66px;"
+            backgroundColor = "white"
+            boxShadow = "#737399 0px 0px 5px"
         } as? Properties
 
         div {
@@ -100,7 +132,7 @@ val App = FC<Props> {
                 +"Save File"
                 style = kotlinext.js.js {
                     width = "100%"
-                    backgroundColor = "#4CAF50"
+                    backgroundColor = "#6464ff"
                     color = "white"
                     padding = "15px 32px"
                     textAlign = "center"
