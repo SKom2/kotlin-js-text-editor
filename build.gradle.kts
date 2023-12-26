@@ -20,9 +20,19 @@ repositories {
     mavenCentral()
 }
 
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+
 kotlin {
     jvm {
         withJava()
+        compilations.all {
+            kotlinOptions {
+                jvmTarget = "1.8"
+            }
+        }
     }
     js {
         browser {

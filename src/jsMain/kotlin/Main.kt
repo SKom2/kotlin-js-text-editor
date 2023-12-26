@@ -1,6 +1,5 @@
 package org.example.application
 
-import App
 import kotlinx.browser.document
 import react.create
 import react.dom.client.createRoot
