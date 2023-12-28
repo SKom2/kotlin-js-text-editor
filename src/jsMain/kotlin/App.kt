@@ -16,6 +16,7 @@ import react.dom.html.ReactHTML.button
 import react.dom.html.ReactHTML.div
 import react.dom.html.ReactHTML.h1
 import react.dom.html.ReactHTML.p
+import web.cssom.ClassName
 import web.dom.document
 import web.html.HTMLAnchorElement
 import web.html.HTMLDivElement
@@ -130,19 +131,7 @@ val App = FC<Props> {
 
             button {
                 +"Save File"
-                style = kotlinext.js.js {
-                    width = "100%"
-                    backgroundColor = "#6464ff"
-                    color = "white"
-                    padding = "15px 32px"
-                    textAlign = "center"
-                    textDecoration = "none"
-                    display = "inline-block"
-                    fontSize = "16px"
-                    cursor = "pointer"
-                    borderRadius = "4px"
-                    border = "0"
-                } as? Properties
+                className = "save-button" as ClassName?
                 onClick = {
                     handleSaveClick()
                 }

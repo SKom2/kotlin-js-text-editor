@@ -83,6 +83,7 @@ kotlin {
                 implementation("org.jetbrains.kotlin-wrappers:kotlin-react-dom")
                 implementation(npm("monaco-editor", "0.44.0"))
                 implementation("org.jetbrains.kotlin-wrappers:kotlin-react-legacy:VERSION")
+                implementation("org.jetbrains.kotlin-wrappers:kotlin-react-legacy:VERSION")
             }
         }
     }
