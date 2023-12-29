@@ -28,7 +28,7 @@ Welcome to the custom Monaco Editor project! This project utilizes Kotlin and Re
 
 After cloning the repository, run the following command:
 
-./gradlew run
+`./gradlew run`
 
 ## Saving Files
 
