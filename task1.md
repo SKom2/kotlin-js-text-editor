@@ -1,4 +1,8 @@
+![image](https://github.com/SKom2/kotlin-js-text-editor/assets/103752057/22891142-3f7a-4486-9c20-9bcd9784597c)
+
 # Test Task 1: Web IDE for Remote Development: Implementation Plan
+
+[Task 2: ]
 
 ## Introduction
 
