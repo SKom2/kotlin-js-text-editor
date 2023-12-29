@@ -4,7 +4,7 @@
 
 ## Web IDE for RD
 
-### Custom Monaco Editor with Kotlin/React
+### Test task 2: Custom Monaco Editor with Kotlin/React
 
 Welcome to the custom Monaco Editor project! This project utilizes Kotlin and React to provide a Monaco code editor in the browser. 
 
@@ -40,4 +40,4 @@ The editor comes with a "Save File" feature that allows you to persist your chan
 
 ### References
 
-The structure of the project and its initialization is borrowed from this helpful video:[Full stack React App](https://www.youtube.com/watch?v=HEH57g-UP4Q&pp=ygUNa290bGluIGpzIGFwcA%3D%3D)
+The structure of the project and its initialization is borrowed from this helpful video: [Full stack React App](https://www.youtube.com/watch?v=HEH57g-UP4Q&pp=ygUNa290bGluIGpzIGFwcA%3D%3D)
