@@ -1,4 +1,4 @@
-![image](https://github.com/SKom2/kotlin-js-text-editor/assets/103752057/3855bd82-996d-4df7-8905-b55e7537e3fc)
+![image](https://github.com/SKom2/kotlin-js-text-editor/assets/103752057/bcfd650a-ca87-4e7c-b52d-533e6a20f982)
 
 # JetBrains Internship 2024
 
