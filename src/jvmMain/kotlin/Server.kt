@@ -10,7 +10,6 @@ import io.ktor.server.plugins.cors.routing.*
 import io.ktor.server.request.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
-import org.example.application.FileContent
 import java.io.File
 import java.nio.file.Paths
 
@@ -29,7 +28,7 @@ fun main() {
         }
 
         install(Compression) {
-            gzip()
+           gzip()
         }
 
         routing {

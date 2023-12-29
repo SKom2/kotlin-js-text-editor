@@ -2,6 +2,7 @@
 
 package org.example.application
 
+import FileContent
 import csstype.Properties
 import kotlinext.js.js
 import kotlinx.browser.window
