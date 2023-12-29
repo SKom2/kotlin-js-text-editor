@@ -1,8 +1,35 @@
-[![official JetBrains project](https://jb.gg/badges/official.svg)](https://confluence.jetbrains.com/display/ALL/JetBrains+on+GitHub)
-[![GitHub license](https://img.shields.io/badge/license-Apache%20License%202.0-blue.svg?style=flat)](https://www.apache.org/licenses/LICENSE-2.0)
+# Custom Monaco Editor with Kotlin/React
 
-# Full Stack JVM & JS App Hands-On Lab
+Welcome to the custom Monaco Editor project! This project utilizes Kotlin and React to provide a Monaco code editor in the browser. 
 
-This repository is the code corresponding to the hands-on lab [Building a Full Stack Web App with Kotlin Multiplatform](https://play.kotlinlang.org/hands-on/Full%20Stack%20Web%20App%20with%20Kotlin%20Multiplatform/).
+![image](https://github.com/SKom2/kotlin-js-text-editor/assets/103752057/ef49f0c8-22f9-4fb8-92b2-c5d3b8488998)
 
-**The master branch is to be used as a template. If you would like to see the completed project, check out the [final](https://github.com/kotlin-hands-on/jvm-js-fullstack/tree/final) branch.**
+
+## Features
+
+- Integration with the Monaco Editor.
+- Implementation of a RPC protocol to write and save a file.
+
+## Project Structure
+
+- src/commonMain/kotlin: Shared Kotlin codebase that can be used across different platforms.
+- src/commonMain/resources: Resources such as properties files and configuration that are common across platforms.
+- src/jsMain/kotlin: Kotlin code that targets JavaScript runtime. This is where the React components and bindings are implemented.
+  - App.kt: The main React component that sets up the editor.
+  - FileContent.kt: Handles the content of the file being edited.
+  - Main.kt: The entry point of the Kotlin/React application.
+- src/jvmMain/kotlin: Kotlin code that targets the JVM, potentially for server-side logic.
+  - Server.kt: Entry point for any server-side logic (if applicable).
+  - FileContent.kt: Handles the content of files for server-side operations.
+- gradle/: Contains Gradle wrapper scripts and settings for building the project.
+- build.gradle.kts: Kotlin DSL script for defining the Gradle build configuration.
+
+## Getting Started
+
+After cloning the repository, run the following command:
+
+./gradlew run
+
+## Saving Files
+
+The editor comes with a "Save File" feature that allows you to persist your changes. This feature connected to backend logic for storing files on a server.
