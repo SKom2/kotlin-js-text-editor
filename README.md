@@ -2,6 +2,9 @@
 
 # JetBrains Internship 2024
 
+## Link
+[Test Task 1: Web IDE for Remote Development: Implementation Plan](https://github.com/SKom2/kotlin-js-text-editor/blob/master/task1.md)
+
 ## Web IDE for RD
 
 ### Test task 2: Custom Monaco Editor with Kotlin/React
