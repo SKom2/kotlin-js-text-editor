@@ -2,7 +2,8 @@
 
 # Test Task 1: Web IDE for Remote Development: Implementation Plan
 
-([Task 2: Web IDE for RD](https://github.com/SKom2/kotlin-js-text-editor/blob/master/README.md))
+## Link
+[Task 2: Web IDE for RD](https://github.com/SKom2/kotlin-js-text-editor/blob/master/README.md)
 
 ## Introduction
 
