@@ -13,15 +13,13 @@ Welcome to the custom Monaco Editor project! This project utilizes Kotlin and Re
 ## Project Structure
 
 - src/commonMain/kotlin: Shared Kotlin codebase that can be used across different platforms.
+  - FileContent.kt: Handles the content of files that should be saved.
 - src/commonMain/resources: Resources such as properties files and configuration that are common across platforms.
 - src/jsMain/kotlin: Kotlin code that targets JavaScript runtime. This is where the React components and bindings are implemented.
   - App.kt: The main React component that sets up the editor.
-  - FileContent.kt: Handles the content of the file being edited.
   - Main.kt: The entry point of the Kotlin/React application.
 - src/jvmMain/kotlin: Kotlin code that targets the JVM, potentially for server-side logic.
-  - Server.kt: Entry point for any server-side logic (if applicable).
-  - FileContent.kt: Handles the content of files for server-side operations.
-- gradle/: Contains Gradle wrapper scripts and settings for building the project.
+  - Server.kt: Entry point for a server-side logic.
 - build.gradle.kts: Kotlin DSL script for defining the Gradle build configuration.
 
 ## Getting Started
