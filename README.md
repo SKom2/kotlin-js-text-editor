@@ -1,16 +1,22 @@
-# Custom Monaco Editor with Kotlin/React
+![image](https://github.com/SKom2/kotlin-js-text-editor/assets/103752057/3855bd82-996d-4df7-8905-b55e7537e3fc)
+
+# JetBrains Internship 2024
+
+## Web IDE for RD
+
+### Custom Monaco Editor with Kotlin/React
 
 Welcome to the custom Monaco Editor project! This project utilizes Kotlin and React to provide a Monaco code editor in the browser. 
 
 ![image](https://github.com/SKom2/kotlin-js-text-editor/assets/103752057/ef49f0c8-22f9-4fb8-92b2-c5d3b8488998)
 
 
-## Features
+### Features
 
 - Integration with the Monaco Editor.
 - Implementation of a RPC protocol to write and save a file.
 
-## Project Structure
+### Project Structure
 
 - src/commonMain/kotlin: Shared Kotlin codebase that can be used across different platforms.
   - FileContent.kt: Handles the content of files that should be saved.
@@ -22,16 +28,17 @@ Welcome to the custom Monaco Editor project! This project utilizes Kotlin and Re
   - Server.kt: Entry point for a server-side logic.
 - build.gradle.kts: Kotlin DSL script for defining the Gradle build configuration.
 
-## Getting Started
+### Getting Started
 
 After cloning the repository, run the following command:
 
 `./gradlew run`
 
-## Saving Files
+### Saving Files
 
 The editor comes with a "Save File" feature that allows you to persist your changes. This feature connected to backend logic for storing files on a server.
 
-## References
+### References
+
 The structure of the project and its initialization is borrowed from this helpful video:
 https://www.youtube.com/watch?v=HEH57g-UP4Q&pp=ygUNa290bGluIGpzIGFwcA%3D%3D
