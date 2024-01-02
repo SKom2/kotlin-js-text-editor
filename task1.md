@@ -14,11 +14,11 @@ For me, this project is a breath of fresh air. I love front-end development, but
 ### 1. Integration of Fleet and Monaco Editor
 - Goal: As I understand it, the key step to solving this problem is the integration of Fleet and Monaco Editor. We need to ensure that Monaco can effectively interact with Fleet to process code and file requests. To do this, Fleet needs to be able to work in a browser.
 - Implementation:
-   - We can compile part of it into JavaScript or WASM
-   - I would also use Kotlin Multiplatform to ensure code compatibility between different platforms.
+   - We need to use Kotlin Multiplatform to ensure code compatibility between different platforms.
+   - Parts of the codebase should be compiled into JavaScript or WASM.
 
 ### 2. User Interface Development
-- Goal: Creating an intuitive and user-friendly user interface. Everything here is simple and logical. The difficulty can only lie in implementation.
+- Goal: Creating an intuitive and user-friendly user interface. 
 - Key Aspects:
    - UI/UX design with an emphasis on ease of navigation and quick edits.
    - Responsive and cross-browser design.
@@ -44,5 +44,5 @@ For me, this project is a breath of fresh air. I love front-end development, but
 
 ## Conclusion
 
-The project offers opportunities for a creative approach to front-end development and requires a deep understanding of modern technologies and flexibility in implementing tasks.
+The project offers opportunities for a creative approach to development and requires a deep understanding of modern technologies and flexibility in implementing tasks.
 ​
