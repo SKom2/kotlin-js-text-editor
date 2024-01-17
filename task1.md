@@ -36,8 +36,8 @@ For me, this project is a breath of fresh air. I love front-end development, but
    - Surveys and interviews with potential users.
    - Iterative implementation of changes based on received feedback.
 
-## Interaction with the Team. I add this point because I think this is an important aspect in the implementation of the project, despite the fact that most likely the development of the project is implied.
-
+## 5. Interaction with the Team. 
+I add this point because I think this is an important aspect in the implementation of the project, despite the fact that most likely the development of the project is implied.
 - Effective Communication: Regular meetings and common communication channels to ensure consistency of work.
 - Flexibility and Understanding of Tasks: Willingness to change and understanding of key technologies and project tasks.
 - Teamwork and Support: Maintaining a spirit of teamwork and mutual assistance.
