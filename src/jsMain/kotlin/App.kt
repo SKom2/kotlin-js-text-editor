@@ -45,7 +45,6 @@ val App = FC<Props> {
 
             val editorDomElement = it.querySelector(".monaco-editor") as? HTMLDivElement
             editorDomElement?.style?.apply {
-                // Применение ваших стилей
                 order = "1"
                 width = "100%"
                 margin = "0 0 20px"
