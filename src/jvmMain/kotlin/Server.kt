@@ -15,38 +15,41 @@ import java.nio.file.Paths
 
 
 fun main() {
-    embeddedServer(Netty, 9090) {
-        install(ContentNegotiation) {
-            json()
-        }
+    embeddedServer(Netty, 9090, module = Application::myApplicationModule).start(wait = true)
+}
 
-        install(CORS) {
-            allowMethod(HttpMethod.Get)
-            allowMethod(HttpMethod.Post)
-            allowMethod(HttpMethod.Delete)
-            anyHost()
-        }
+fun Application.myApplicationModule() {
+    install(ContentNegotiation) {
+        json()
+    }
 
-        install(Compression) {
-           gzip()
-        }
+    install(CORS) {
+        allowMethod(HttpMethod.Get)
+        allowMethod(HttpMethod.Post)
+        allowMethod(HttpMethod.Delete)
+        anyHost()
+    }
 
-        routing {
-            get("/") {
-                call.respondText(
-                    this::class.java.classLoader.getResource("index.html")!!.readText(),
-                    ContentType.Text.Html
-                )
-            }
-            post("/writeFile") {
-                val fileContent = call.receive<FileContent>()
-                val filePath = Paths.get("saved_files", fileContent.name)
-                File(filePath.toString()).writeText(fileContent.content)
-                call.respond(HttpStatusCode.OK, "File saved successfully")
-            }
-            static("/") {
-                resources("static")
-            }
+    install(Compression) {
+        gzip()
+    }
+
+    routing {
+        get("/") {
+            call.respondText(
+                this::class.java.classLoader.getResource("index.html")!!.readText(),
+                ContentType.Text.Html
+            )
         }
-    }.start(wait = true)
+        post("/writeFile") {
+            val fileContent = call.receive<FileContent>()
+            val filePath = Paths.get("saved_files", fileContent.name)
+            File(filePath.toString()).writeText(fileContent.content)
+            call.respond(HttpStatusCode.OK, "File saved successfully")
+        }
+        @Suppress("DEPRECATION")
+        static("/") {
+            resources("static")
+        }
+    }
 }

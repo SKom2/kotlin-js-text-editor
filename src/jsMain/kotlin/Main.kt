@@ -6,8 +6,8 @@ import react.dom.client.createRoot
 import web.html.HTMLDivElement
 
 fun main() {
-    val rootContainer = document.getElementById("root") as HTMLDivElement
-    rootContainer?.style?.apply {
+    @Suppress("CAST_NEVER_SUCCEEDS") val rootContainer = document.getElementById("root") as HTMLDivElement
+    rootContainer.style.apply {
         paddingTop = "20px"
         height = "100%"
     }

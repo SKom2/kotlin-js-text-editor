@@ -1,4 +1,4 @@
-@file:Suppress("UNCHECKED_CAST_TO_EXTERNAL_INTERFACE")
+@file:Suppress("UNCHECKED_CAST_TO_EXTERNAL_INTERFACE", "CAST_NEVER_SUCCEEDS")
 
 package org.example.application
 
@@ -8,18 +8,13 @@ import kotlinext.js.js
 import kotlinx.browser.window
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
-import org.w3c.dom.url.URL
 import org.w3c.fetch.RequestInit
-import org.w3c.files.Blob
-import org.w3c.files.BlobPropertyBag
 import react.*
 import react.dom.html.ReactHTML.button
 import react.dom.html.ReactHTML.div
 import react.dom.html.ReactHTML.h1
 import react.dom.html.ReactHTML.p
 import web.cssom.ClassName
-import web.dom.document
-import web.html.HTMLAnchorElement
 import web.html.HTMLDivElement
 
 @JsModule("monaco-editor")
@@ -30,12 +25,9 @@ external val monaco: dynamic
 val App = FC<Props> {
     val (saveStatus, setSaveStatus) = useState("")
     val editorContainerRef = useRef<HTMLDivElement>(null)
-    var (editorInstance, setEditorInstance) = useState<dynamic>(null)
+    val (editorInstance, setEditorInstance) = useState<dynamic>(null)
 
-    useEffect{
-        document.documentElement.style.height = "100%"
-        document.body.style.height = "100%"
-
+    useEffect(dependencies = arrayOf(editorInstance)){
         editorContainerRef.current?.let {
             if (editorInstance == null && editorContainerRef.current != null) {
                 setEditorInstance(monaco.editor.create(editorContainerRef.current, js {
@@ -51,8 +43,8 @@ val App = FC<Props> {
                 border = "2px solid #c0b1fb"
                 overflow = "hidden"
                 borderRadius = "15px"
-                maxHeight = "600px"
-                minHeight = "600px"
+                maxHeight = "400px"
+                minHeight = "400px"
             }
 
         }
@@ -77,7 +69,6 @@ val App = FC<Props> {
                     console.log("File saved successfully.")
                     setSaveStatus("File saved successfully.")
                 } else {
-                    console.error(response)
                     console.error("Failed to save file.")
                     setSaveStatus("Failed to save file.")
                 }
@@ -89,17 +80,6 @@ val App = FC<Props> {
         if (content != null) {
             saveFile("saveFile.txt", content)
         }
-
-        val blob = Blob(arrayOf(content), BlobPropertyBag("text/plain;charset=utf-8"))
-
-        val url = URL.createObjectURL(blob)
-
-        val downloadLink = document.createElement("a") as HTMLAnchorElement
-        downloadLink.href = url
-        downloadLink.download = "saveFile.txt"
-        document.body?.appendChild(downloadLink)
-        downloadLink.click()
-        document.body?.removeChild(downloadLink)
     }
 
     h1 {
@@ -108,8 +88,8 @@ val App = FC<Props> {
             margin = "10px auto 20px"
             textAlign = "center"
             color = "black"
-            fontSize = "50px"
-        }
+            fontSize = "35px"
+        } as? Properties
     }
 
     div {
@@ -127,7 +107,7 @@ val App = FC<Props> {
         div {
             style = kotlinext.js.js {
                 order = "2"
-            }
+            } as? Properties
 
             button {
                 +"Save File"
